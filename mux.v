@@ -1,0 +1,9 @@
+module Mux(I_AM_OWNERS,IRDYS,FRAMES,GLOBAL_IRDY,GLOBAL_FRAME);//selecting the controlling Divce
+input [2:0] I_AM_OWNERS,IRDYS,FRAMES;
+output wire GLOBAL_IRDY,GLOBAL_FRAME;
+assign {GLOBAL_IRDY,GLOBAL_FRAME} = 
+(I_AM_OWNERS[0]) ? {IRDYS[0],FRAMES[0]} :
+(I_AM_OWNERS[1]) ? {IRDYS[1],FRAMES[1]} :
+(I_AM_OWNERS[2]) ? {IRDYS[2],FRAMES[2]} :{1'b1,1'b1};
+
+endmodule
